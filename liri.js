@@ -111,7 +111,7 @@ function omdb(movieName) {
             console.log("Cast: " + cast);
 
             fs.appendFile('log.txt', "\nMovie Search\n")
-            fs.appendFile('log.txt', "\nTitle: " + title +"\n");
+            fs.appendFile('log.txt', "Title: " + title +"\n");
             fs.appendFile('log.txt', "Release Year: " + year +"\n");
             fs.appendFile('log.txt', "IMDB Rating: " + rating +"\n");
             fs.appendFile('log.txt', "Rotten Tomatoes Rating: " + rotten +"\n");
