@@ -2,19 +2,23 @@ require("dotenv").config();
 let fs = require("fs");
 let request = require("request");
 
-var keys = require("./keys.js");
+const keys = require("./keys.js");
 let Spotify = require("node-spotify-api");
 
-// var spotify = new Spotify({
-//     id: keys[spotify.id],
-//     secret: keys[spotify.secret]
-// });
+const spotifyKeys = keys.spotify;
+
+// let spotify = new Spotify(keys.spotify);
+
+var spotify = new Spotify({
+    id: spotifyKeys.id,
+    secret: spotifyKeys.secret
+});
 
 // const client = new Twitter(keys.twitter);
 
 const command = process.argv[2];
 let movieName = process.argv[3];
-// let songName = process.argv[3];
+let songName = process.argv[3];
 
 // function twitter() {
 // request("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + client + "&count=20", function (error, response, body) {
@@ -28,67 +32,60 @@ let movieName = process.argv[3];
 
 
 function spotifySearch(songName) {
+
     if (songName) {
-    // spotifyKey.request({ type: 'track', query: songName }, function(err, response) {
 
-    //     if (!error && response.statusCode === 200) {
-    //         JSON.parse(body);
+        spotify.search({ type: 'track', query: songName, limit: "1" }, function (err, data) {
+            if (err) {
+                return console.log('Error occurred: ' + err);
+            }
+            var starter = data.tracks.items[0]
 
-    //         console.log(body);
-    //     } else if (err) {
-    //       return console.log('Error occurred: ' + err);
-    //     }
-    //   });
-
-    spotify.search({ type: 'track', query: songName }, function (err, data) {
-        if (err) {
-            return console.log('Error occurred: ' + err);
-        }
-
-        console.log(data);
-            let artist =; 
-            let song =;
-            let link =;
-            let album =;
+            let artist = starter.artists[0].name;
+            let song = starter.name;
+            let link = starter.preview_url;
+            let album = starter.album.name;
 
             console.log("Artist: " + artist);
             console.log("Song Name: " + song);
             console.log("Preview Link: " + link);
             console.log("Album Name: " + album);
-            
 
-                fs.appendFile('log.txt', "\nSong Search\n")
-                fs.appendFile('log.txt', "Artist: " + artist +"\n");
-                fs.appendFile('log.txt', "Song Name: " + song +"\n");
-                fs.appendFile('log.txt', "Preview Link: " + link +"\n");
-                fs.appendFile('log.txt', "Album Name: " + album +"\n");
-    });
-} else { spotify.search({ type: 'track', query: 'Natural' }, function (err, data) {
-    if (err) {
-        return console.log('Error occurred: ' + err);
+
+            fs.appendFile('log.txt', "\nSong Search\n")
+            fs.appendFile('log.txt', "Artist: " + artist + "\n");
+            fs.appendFile('log.txt', "Song Name: " + song + "\n");
+            fs.appendFile('log.txt', "Preview Link: " + link + "\n");
+            fs.appendFile('log.txt', "Album Name: " + album + "\n");
+        });
+
+    } else {
+        spotify.search({ type: 'track', query: songName, limit: "1" }, function (err, data) {
+            if (err) {
+                return console.log('Error occurred: ' + err);
+            }
+            var starter = data.tracks.items[0]
+
+            let artist = starter.artists[0].name;
+            let song = starter.name;
+            let link = starter.preview_url;
+            let album = starter.album.name;
+
+            console.log("Artist: " + artist);
+            console.log("Song Name: " + song);
+            console.log("Preview Link: " + link);
+            console.log("Album Name: " + album);
+
+            fs.appendFile('log.txt', "\nSong Search\n")
+            fs.appendFile('log.txt', "Artist: " + artist + "\n");
+            fs.appendFile('log.txt', "Song Name: " + song + "\n");
+            fs.appendFile('log.txt', "Preview Link: " + link + "\n");
+            fs.appendFile('log.txt', "Album Name: " + album + "\n");
+        });
+
     }
 
-        console.log(data);
-
-            let artist =; 
-            let song =;
-            let link =;
-            let album =;
-
-            console.log("Artist: " + artist);
-            console.log("Song Name: " + song);
-            console.log("Preview Link: " + link);
-            console.log("Album Name: " + album);
-
-                fs.appendFile('log.txt', "\nSong Search\n")
-                fs.appendFile('log.txt', "Artist: " + artist +"\n");
-                fs.appendFile('log.txt', "Song Name: " + song +"\n");
-                fs.appendFile('log.txt', "Preview Link: " + link +"\n");
-                fs.appendFile('log.txt', "Album Name: " + album +"\n");
-});
-}
-
-
+};
 
 function omdb(movieName) {
 
@@ -119,14 +116,14 @@ function omdb(movieName) {
                 console.log("Cast: " + cast);
 
                 fs.appendFile('log.txt', "\nMovie Search\n")
-                fs.appendFile('log.txt', "Title: " + title +"\n");
-                fs.appendFile('log.txt', "Release Year: " + year +"\n");
-                fs.appendFile('log.txt', "IMDB Rating: " + rating +"\n");
-                fs.appendFile('log.txt', "Rotten Tomatoes Rating: " + rotten +"\n");
-                fs.appendFile('log.txt', "Origin Country: " + country +"\n");
-                fs.appendFile('log.txt', "Language: " + lang +"\n");
-                fs.appendFile('log.txt', "Plot: " + plot +"\n");
-                fs.appendFile('log.txt', "Cast: " + cast +"\n");
+                fs.appendFile('log.txt', "Title: " + title + "\n");
+                fs.appendFile('log.txt', "Release Year: " + year + "\n");
+                fs.appendFile('log.txt', "IMDB Rating: " + rating + "\n");
+                fs.appendFile('log.txt', "Rotten Tomatoes Rating: " + rotten + "\n");
+                fs.appendFile('log.txt', "Origin Country: " + country + "\n");
+                fs.appendFile('log.txt', "Language: " + lang + "\n");
+                fs.appendFile('log.txt', "Plot: " + plot + "\n");
+                fs.appendFile('log.txt', "Cast: " + cast + "\n");
             }
         });
     } else {
@@ -153,14 +150,14 @@ function omdb(movieName) {
             console.log("Cast: " + cast);
 
             fs.appendFile('log.txt', "\nMovie Search\n")
-            fs.appendFile('log.txt', "Title: " + title +"\n");
-            fs.appendFile('log.txt', "Release Year: " + year +"\n");
-            fs.appendFile('log.txt', "IMDB Rating: " + rating +"\n");
-            fs.appendFile('log.txt', "Rotten Tomatoes Rating: " + rotten +"\n");
-            fs.appendFile('log.txt', "Origin Country: " + country +"\n");
-            fs.appendFile('log.txt', "Language: " + lang +"\n");
-            fs.appendFile('log.txt', "Plot: " + plot +"\n");
-            fs.appendFile('log.txt', "Cast: " + cast +"\n");
+            fs.appendFile('log.txt', "Title: " + title + "\n");
+            fs.appendFile('log.txt', "Release Year: " + year + "\n");
+            fs.appendFile('log.txt', "IMDB Rating: " + rating + "\n");
+            fs.appendFile('log.txt', "Rotten Tomatoes Rating: " + rotten + "\n");
+            fs.appendFile('log.txt', "Origin Country: " + country + "\n");
+            fs.appendFile('log.txt', "Language: " + lang + "\n");
+            fs.appendFile('log.txt', "Plot: " + plot + "\n");
+            fs.appendFile('log.txt', "Cast: " + cast + "\n");
         });
 
     }
@@ -175,7 +172,7 @@ function omdb(movieName) {
 if (command === "my-tweets") {
     // twitter();
 } else if (command === "spotify-this-song") {
-    // spotifySearch(songName);
+    spotifySearch(songName);
 } else if (command === "movie-this") {
     omdb(movieName);
 } else if ("do-what-it-says") {
