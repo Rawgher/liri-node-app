@@ -27,26 +27,35 @@ let movieName = process.argv[3];
 // }
 
 
-// function spotifySearch(songName) {
-//     // spotifyKey.request({ type: 'track', query: songName }, function(err, response) {
+function spotifySearch(songName) {
+    if (songName) {
+    // spotifyKey.request({ type: 'track', query: songName }, function(err, response) {
 
-//     //     if (!error && response.statusCode === 200) {
-//     //         JSON.parse(body);
+    //     if (!error && response.statusCode === 200) {
+    //         JSON.parse(body);
 
-//     //         console.log(body);
-//     //     } else if (err) {
-//     //       return console.log('Error occurred: ' + err);
-//     //     }
-//     //   });
+    //         console.log(body);
+    //     } else if (err) {
+    //       return console.log('Error occurred: ' + err);
+    //     }
+    //   });
 
-//     spotify.search({ type: 'track', query: songName }, function (err, data) {
-//         if (err) {
-//             return console.log('Error occurred: ' + err);
-//         }
+    spotify.search({ type: 'track', query: songName }, function (err, data) {
+        if (err) {
+            return console.log('Error occurred: ' + err);
+        }
 
-//         console.log(data);
-//     });
-// }
+        console.log(data);
+    });
+
+                fs.appendFile('log.txt', "\nSong Search\n")
+                fs.appendFile('log.txt', "Artist: " + artist +"\n");
+                fs.appendFile('log.txt', "Song Name: " + song +"\n");
+                fs.appendFile('log.txt', "Preview Link: " + link +"\n");
+                fs.appendFile('log.txt', "Album Name: " + album +"\n");
+}
+
+
 
 function omdb(movieName) {
 
