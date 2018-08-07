@@ -1,0 +1,125 @@
+User Command: node liri.js movie-this
+
+User Command: node liri.js movie-this
+
+User Command: node liri.js movie-this
+
+User Command: node liri.js movie-this
+
+User Command: node liri.js movie-this
+
+User Command: node liri.js movie-this
+
+Title: The HobbitIMDB Rating: 6.8Rotten Tomatoes Rating: undefinedOrigin Country: USA, JapanRelease Year: 1977Language: EnglishCast: Orson Bean, Richard Boone, Hans Conried, John HustonPlot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.Title: The Hobbit
+IMDB Rating: 6.8
+Release Year: 1977
+Origin Country: USA, Japan
+Rotten Tomatoes Rating: undefined
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Language: English
+Title: The Hobbit
+Release Year: 1977
+IMDB Rating: 6.8
+Rotten Tomatoes Rating: undefined
+Origin Country: USA, Japan
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Language: English
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Title: The Hobbit
+Release Year: 1977
+Rotten Tomatoes Rating: undefined
+IMDB Rating: 6.8
+Language: English
+Origin Country: USA, Japan
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Title: The Hobbit
+IMDB Rating: 6.8
+Release Year: 1977
+Rotten Tomatoes Rating: undefined
+Language: English
+Origin Country: USA, Japan
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Title: The Hobbit
+Rotten Tomatoes Rating: undefined
+Release Year: 1977
+IMDB Rating: 6.8
+Origin Country: USA, Japan
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Language: English
+Title: The Hobbit
+Release Year: 1977
+Rotten Tomatoes Rating: undefined
+Language: English
+Origin Country: USA, Japan
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+IMDB Rating: 6.8
+Title: The Hobbit
+Release Year: 1977
+Rotten Tomatoes Rating: undefined
+IMDB Rating: 6.8
+Origin Country: USA, Japan
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Language: English
+Title: The Hobbit
+Release Year: 1977
+Rotten Tomatoes Rating: undefined
+IMDB Rating: 6.8
+Origin Country: USA, Japan
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Language: English
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Title: The Hobbit
+Release Year: 1977
+IMDB Rating: 6.8
+Language: English
+Rotten Tomatoes Rating: undefined
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Origin Country: USA, Japan
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Title: The Hobbit
+Release Year: 1977
+Language: English
+IMDB Rating: 6.8
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Rotten Tomatoes Rating: undefined
+Origin Country: USA, Japan
+Title: The Hobbit
+Release Year: 1977
+Rotten Tomatoes Rating: undefined
+IMDB Rating: 6.8
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Origin Country: USA, Japan
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Language: English
+Title: The Hobbit
+Rotten Tomatoes Rating: undefined
+Release Year: 1977
+IMDB Rating: 6.8
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Origin Country: USA, Japan
+Language: English
+Title: Remember the TitansIMDB Rating: 7.8Release Year: 2000Rotten Tomatoes Rating: undefinedPlot: The true story of a newly appointed African-American coach and his high school team on their first season as a racially integrated unit.Cast: Denzel Washington, Will Patton, Wood Harris, Ryan HurstLanguage: EnglishOrigin Country: USATitle: MulanRelease Year: 1998Origin Country: USAIMDB Rating: 7.6Plot: To save her father from death in the army, a young maiden secretly goes in his place and becomes one of China's greatest heroines in the process.Rotten Tomatoes Rating: undefinedLanguage: English, MandarinCast: Miguel Ferrer, Harvey Fierstein, Freda Foh Shen, June ForayTitle: Mulan
+IMDB Rating: 7.6
+Release Year: 1998
+Language: English, Mandarin
+Plot: To save her father from death in the army, a young maiden secretly goes in his place and becomes one of China's greatest heroines in the process.
+Cast: Miguel Ferrer, Harvey Fierstein, Freda Foh Shen, June Foray
+Rotten Tomatoes Rating: undefined
+Origin Country: USA
+
+Title: Mulan
+Release Year: 1998
+Rotten Tomatoes Rating: undefined
+IMDB Rating: 7.6
+Origin Country: USA
+Plot: To save her father from death in the army, a young maiden secretly goes in his place and becomes one of China's greatest heroines in the process.
+Cast: Miguel Ferrer, Harvey Fierstein, Freda Foh Shen, June Foray
+Language: English, Mandarin
