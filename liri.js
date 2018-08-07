@@ -18,10 +18,6 @@ let movieName = process.argv[3];
 
 // function twitter() {
 // request("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + client + "&count=20", function (error, response, body) {
-// fs.appendFile('./log.txt', 'User Command: node liri.js my-tweets\n\n', (err) => {
-// 	if (err) {
-//         return console.log('Error occurred: ' + err);
-// });
 //     if (!error && response.statusCode === 200) {
 //         var screenName= JSON.parse((response.body).screen_name);
 //         var time= JSON.parse((response.body).);
@@ -32,10 +28,6 @@ let movieName = process.argv[3];
 
 
 // function spotifySearch(songName) {
-//     // fs.appendFile('./log.txt', 'User Command: node liri.js spotify-this-song\n\n', (err) => {
-//     // 	if (err) {
-//     //         return console.log('Error occurred: ' + err);
-//     // });
 //     // spotifyKey.request({ type: 'track', query: songName }, function(err, response) {
 
 //     //     if (!error && response.statusCode === 200) {
@@ -69,7 +61,7 @@ function omdb(movieName) {
                 var year = JSON.parse(body).Year;
                 var rating = JSON.parse(body).imdbRating;
                 // need to add if statement to see if rotten tomatoes works or not
-                var rotten = JSON.parse(body).Ratings[1].value;
+                var rotten = JSON.parse(body).Ratings[1].Value;
                 var country = JSON.parse(body).Country;
                 var lang = JSON.parse(body).Language;
                 var plot = JSON.parse(body).Plot;
@@ -84,7 +76,8 @@ function omdb(movieName) {
                 console.log("Plot: " + plot);
                 console.log("Cast: " + cast);
 
-                fs.appendFile('log.txt', "\nTitle: " + title +"\n");
+                fs.appendFile('log.txt', "\nMovie Search\n")
+                fs.appendFile('log.txt', "Title: " + title +"\n");
                 fs.appendFile('log.txt', "Release Year: " + year +"\n");
                 fs.appendFile('log.txt', "IMDB Rating: " + rating +"\n");
                 fs.appendFile('log.txt', "Rotten Tomatoes Rating: " + rotten +"\n");
@@ -95,14 +88,14 @@ function omdb(movieName) {
             }
         });
     } else {
-        request("http://www.omdbapi.com/?t=The+Hobbit&y=&plot=short&apikey=trilogy", function (error, response, body) {
+        request("http://www.omdbapi.com/?t=The+Hobbit+An+Unexpected+Journey&y=&plot=short&apikey=trilogy", function (error, response, body) {
             console.log("You should watch the Hobbit!");
 
             var title = JSON.parse(body).Title;
             var year = JSON.parse(body).Year;
             var rating = JSON.parse(body).imdbRating;
             // need to add if statement to see if rotten tomatoes works or not
-            var rotten = JSON.parse(body).Ratings[1].value;
+            var rotten = JSON.parse(body).Ratings[1].Value;
             var country = JSON.parse(body).Country;
             var lang = JSON.parse(body).Language;
             var plot = JSON.parse(body).Plot;
@@ -117,6 +110,7 @@ function omdb(movieName) {
             console.log("Plot: " + plot);
             console.log("Cast: " + cast);
 
+            fs.appendFile('log.txt', "\nMovie Search\n")
             fs.appendFile('log.txt', "\nTitle: " + title +"\n");
             fs.appendFile('log.txt', "Release Year: " + year +"\n");
             fs.appendFile('log.txt', "IMDB Rating: " + rating +"\n");

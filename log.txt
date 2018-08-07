@@ -123,3 +123,50 @@ Origin Country: USA
 Plot: To save her father from death in the army, a young maiden secretly goes in his place and becomes one of China's greatest heroines in the process.
 Cast: Miguel Ferrer, Harvey Fierstein, Freda Foh Shen, June Foray
 Language: English, Mandarin
+
+Title: The Hobbit
+IMDB Rating: 6.8
+Origin Country: USA, Japan
+Release Year: 1977
+Rotten Tomatoes Rating: undefined
+Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
+Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
+Language: English
+
+Title: The Hobbit: An Unexpected Journey
+Release Year: 2012
+IMDB Rating: 7.9
+Origin Country: USA, New Zealand
+Rotten Tomatoes Rating: undefined
+Language: English
+Plot: A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.
+Cast: Ian McKellen, Martin Freeman, Richard Armitage, Ken Stott
+
+Title: The Hobbit: An Unexpected Journey
+Release Year: 2012
+IMDB Rating: 7.9
+Rotten Tomatoes Rating: undefined
+Origin Country: USA, New Zealand
+Cast: Ian McKellen, Martin Freeman, Richard Armitage, Ken Stott
+Plot: A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.
+Language: English
+
+Title: The Hobbit: An Unexpected Journey
+IMDB Rating: 7.9
+Release Year: 2012
+Language: English
+Origin Country: USA, New Zealand
+Cast: Ian McKellen, Martin Freeman, Richard Armitage, Ken Stott
+Rotten Tomatoes Rating: 65%
+Plot: A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.
+
+Movie Search
+
+Title: The Hobbit: An Unexpected Journey
+Release Year: 2012
+IMDB Rating: 7.9
+Rotten Tomatoes Rating: 65%
+Language: English
+Origin Country: USA, New Zealand
+Plot: A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.
+Cast: Ian McKellen, Martin Freeman, Richard Armitage, Ken Stott
