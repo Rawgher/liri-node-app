@@ -46,13 +46,46 @@ function spotifySearch(songName) {
         }
 
         console.log(data);
-    });
+            let artist =; 
+            let song =;
+            let link =;
+            let album =;
+
+            console.log("Artist: " + artist);
+            console.log("Song Name: " + song);
+            console.log("Preview Link: " + link);
+            console.log("Album Name: " + album);
+            
 
                 fs.appendFile('log.txt', "\nSong Search\n")
                 fs.appendFile('log.txt', "Artist: " + artist +"\n");
                 fs.appendFile('log.txt', "Song Name: " + song +"\n");
                 fs.appendFile('log.txt', "Preview Link: " + link +"\n");
                 fs.appendFile('log.txt', "Album Name: " + album +"\n");
+    });
+} else { spotify.search({ type: 'track', query: 'Natural' }, function (err, data) {
+    if (err) {
+        return console.log('Error occurred: ' + err);
+    }
+
+        console.log(data);
+
+            let artist =; 
+            let song =;
+            let link =;
+            let album =;
+
+            console.log("Artist: " + artist);
+            console.log("Song Name: " + song);
+            console.log("Preview Link: " + link);
+            console.log("Album Name: " + album);
+
+                fs.appendFile('log.txt', "\nSong Search\n")
+                fs.appendFile('log.txt', "Artist: " + artist +"\n");
+                fs.appendFile('log.txt', "Song Name: " + song +"\n");
+                fs.appendFile('log.txt', "Preview Link: " + link +"\n");
+                fs.appendFile('log.txt', "Album Name: " + album +"\n");
+});
 }
 
 
@@ -66,15 +99,15 @@ function omdb(movieName) {
             if (!error && response.statusCode === 200) {
                 // Parse the body of the site and recover just the imdbRating
                 // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
-                var title = JSON.parse(body).Title;
-                var year = JSON.parse(body).Year;
-                var rating = JSON.parse(body).imdbRating;
+                let title = JSON.parse(body).Title;
+                let year = JSON.parse(body).Year;
+                let rating = JSON.parse(body).imdbRating;
                 // need to add if statement to see if rotten tomatoes works or not
-                var rotten = JSON.parse(body).Ratings[1].Value;
-                var country = JSON.parse(body).Country;
-                var lang = JSON.parse(body).Language;
-                var plot = JSON.parse(body).Plot;
-                var cast = JSON.parse(body).Actors;
+                let rotten = JSON.parse(body).Ratings[1].Value;
+                let country = JSON.parse(body).Country;
+                let lang = JSON.parse(body).Language;
+                let plot = JSON.parse(body).Plot;
+                let cast = JSON.parse(body).Actors;
 
                 console.log("Title: " + title);
                 console.log("Release Year: " + year);
@@ -100,15 +133,15 @@ function omdb(movieName) {
         request("http://www.omdbapi.com/?t=The+Hobbit+An+Unexpected+Journey&y=&plot=short&apikey=trilogy", function (error, response, body) {
             console.log("You should watch the Hobbit!");
 
-            var title = JSON.parse(body).Title;
-            var year = JSON.parse(body).Year;
-            var rating = JSON.parse(body).imdbRating;
+            let title = JSON.parse(body).Title;
+            let year = JSON.parse(body).Year;
+            let rating = JSON.parse(body).imdbRating;
             // need to add if statement to see if rotten tomatoes works or not
-            var rotten = JSON.parse(body).Ratings[1].Value;
-            var country = JSON.parse(body).Country;
-            var lang = JSON.parse(body).Language;
-            var plot = JSON.parse(body).Plot;
-            var cast = JSON.parse(body).Actors;
+            let rotten = JSON.parse(body).Ratings[1].Value;
+            let country = JSON.parse(body).Country;
+            let lang = JSON.parse(body).Language;
+            let plot = JSON.parse(body).Plot;
+            let cast = JSON.parse(body).Actors;
 
             console.log("Title: " + title);
             console.log("Release Year: " + year);
