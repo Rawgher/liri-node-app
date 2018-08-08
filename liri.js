@@ -9,7 +9,9 @@ const command = process.argv[2];
 let movieName = process.argv[3];
 let songName = process.argv[3];
 
-var spotify = new Spotify({
+let omdbKey = keys.omdb.id;
+
+let spotify = new Spotify({
     id: keys.spotify.id,
     secret: keys.spotify.secret
 });
@@ -88,7 +90,7 @@ function spotifySearch(songName) {
 function omdb(movieName) {
 
     if (movieName) {
-        request("http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy", function (error, response, body) {
+        request("http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=" + omdbKey, function (error, response, body) {
 
             // If the request is successful (i.e. if the response status code is 200)
             if (!error && response.statusCode === 200) {
