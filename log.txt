@@ -170,3 +170,15 @@ Language: English
 Origin Country: USA, New Zealand
 Plot: A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.
 Cast: Ian McKellen, Martin Freeman, Richard Armitage, Ken Stott
+
+Song Search
+Artist: Beyoncé
+Preview Link: https://p.scdn.co/mp3-preview/ce8ace0ec425840416be78db07cf50dd331eed4f?cid=59d8ae3cd02a4f68bddbb02c729af5a4
+Song Name: Crazy In Love
+Album Name: Dangerously In Love
+Artist: Beyoncé
+
+Song Search
+Song Name: Crazy In Love
+Album Name: Dangerously In Love
+Preview Link: https://p.scdn.co/mp3-preview/ce8ace0ec425840416be78db07cf50dd331eed4f?cid=59d8ae3cd02a4f68bddbb02c729af5a4

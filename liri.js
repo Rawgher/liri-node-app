@@ -2,23 +2,21 @@ require("dotenv").config();
 let fs = require("fs");
 let request = require("request");
 
-const keys = require("./keys.js");
+const keys = require("./keys");
 let Spotify = require("node-spotify-api");
-
-const spotifyKeys = keys.spotify;
-
-// let spotify = new Spotify(keys.spotify);
-
-var spotify = new Spotify({
-    id: spotifyKeys.id,
-    secret: spotifyKeys.secret
-});
-
-// const client = new Twitter(keys.twitter);
 
 const command = process.argv[2];
 let movieName = process.argv[3];
 let songName = process.argv[3];
+
+var spotify = new Spotify({
+    id: keys.spotify.id,
+    secret: keys.spotify.secret
+});
+
+// const client = new Twitter(keys.twitter);
+
+
 
 // function twitter() {
 // request("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + client + "&count=20", function (error, response, body) {
