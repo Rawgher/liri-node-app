@@ -9,16 +9,40 @@ const command = process.argv[2];
 let movieName = process.argv[3];
 let songName = process.argv[3];
 
-let omdbKey = keys.omdb.id;
+const omdbKey = keys.omdb.id;
 
-let spotify = new Spotify({
+const spotify = new Spotify({
     id: keys.spotify.id,
     secret: keys.spotify.secret
 });
 
-// const client = new Twitter(keys.twitter);
+let Twitter = require('twitter');
+
+const client = new Twitter({
+    consumer_key: keys.twitter.consumer_key,
+    consumer_secret: keys.twitter.consumer_secret,
+    access_token_key: keys.twitter.access_token_key,
+    access_token_secret: keys.twitter.access_token_secret
+  });
 
 
+// my screen name
+let params = {
+    screen_name: 'Rawgher'
+};
+
+function twitter() {
+  client.get('statuses/user_timeline', params, function(error, tweets, response){
+
+    if(!error && response.statusCode === 200) {
+        console.log(tweets);
+
+        console.log(response.user.name)
+        console.log(response.text)
+        console.log(response.created_at)
+    }
+  })
+};
 
 // function twitter() {
 // request("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + client + "&count=20", function (error, response, body) {
@@ -170,7 +194,7 @@ function omdb(movieName) {
 
 
 if (command === "my-tweets") {
-    // twitter();
+    twitter();
 } else if (command === "spotify-this-song") {
     spotifySearch(songName);
 } else if (command === "movie-this") {
