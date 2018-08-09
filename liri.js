@@ -35,24 +35,14 @@ function twitter() {
   client.get('statuses/user_timeline', params, function(error, tweets, response){
 
     if(!error && response.statusCode === 200) {
-        console.log(tweets);
+        // console.log(tweets);
 
-        console.log(response.user.name)
-        console.log(response.text)
-        console.log(response.created_at)
+        console.log(params.screen_name)
+        console.log(tweets[0].text)
+        console.log(tweets[0].created_at)
     }
   })
 };
-
-// function twitter() {
-// request("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + client + "&count=20", function (error, response, body) {
-//     if (!error && response.statusCode === 200) {
-//         var screenName= JSON.parse((response.body).screen_name);
-//         var time= JSON.parse((response.body).);
-//         var message= JSON.parse((response.body).screen_name);
-//     };
-// }
-// }
 
 
 function spotifySearch(songName) {
