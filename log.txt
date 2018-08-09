@@ -1,120 +1,3 @@
-User Command: node liri.js movie-this
-
-User Command: node liri.js movie-this
-
-User Command: node liri.js movie-this
-
-User Command: node liri.js movie-this
-
-User Command: node liri.js movie-this
-
-User Command: node liri.js movie-this
-
-Title: The HobbitIMDB Rating: 6.8Rotten Tomatoes Rating: undefinedOrigin Country: USA, JapanRelease Year: 1977Language: EnglishCast: Orson Bean, Richard Boone, Hans Conried, John HustonPlot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.Title: The Hobbit
-IMDB Rating: 6.8
-Release Year: 1977
-Origin Country: USA, Japan
-Rotten Tomatoes Rating: undefined
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Language: English
-Title: The Hobbit
-Release Year: 1977
-IMDB Rating: 6.8
-Rotten Tomatoes Rating: undefined
-Origin Country: USA, Japan
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-Language: English
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Title: The Hobbit
-Release Year: 1977
-Rotten Tomatoes Rating: undefined
-IMDB Rating: 6.8
-Language: English
-Origin Country: USA, Japan
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Title: The Hobbit
-IMDB Rating: 6.8
-Release Year: 1977
-Rotten Tomatoes Rating: undefined
-Language: English
-Origin Country: USA, Japan
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-Title: The Hobbit
-Rotten Tomatoes Rating: undefined
-Release Year: 1977
-IMDB Rating: 6.8
-Origin Country: USA, Japan
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Language: English
-Title: The Hobbit
-Release Year: 1977
-Rotten Tomatoes Rating: undefined
-Language: English
-Origin Country: USA, Japan
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-IMDB Rating: 6.8
-Title: The Hobbit
-Release Year: 1977
-Rotten Tomatoes Rating: undefined
-IMDB Rating: 6.8
-Origin Country: USA, Japan
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-Language: English
-Title: The Hobbit
-Release Year: 1977
-Rotten Tomatoes Rating: undefined
-IMDB Rating: 6.8
-Origin Country: USA, Japan
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-Language: English
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Title: The Hobbit
-Release Year: 1977
-IMDB Rating: 6.8
-Language: English
-Rotten Tomatoes Rating: undefined
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Origin Country: USA, Japan
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-Title: The Hobbit
-Release Year: 1977
-Language: English
-IMDB Rating: 6.8
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Rotten Tomatoes Rating: undefined
-Origin Country: USA, Japan
-Title: The Hobbit
-Release Year: 1977
-Rotten Tomatoes Rating: undefined
-IMDB Rating: 6.8
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Origin Country: USA, Japan
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-Language: English
-Title: The Hobbit
-Rotten Tomatoes Rating: undefined
-Release Year: 1977
-IMDB Rating: 6.8
-Cast: Orson Bean, Richard Boone, Hans Conried, John Huston
-Plot: A homebody hobbit in Middle Earth gets talked into joining a quest with a group of dwarves to recover their treasure from a dragon.
-Origin Country: USA, Japan
-Language: English
-Title: Remember the TitansIMDB Rating: 7.8Release Year: 2000Rotten Tomatoes Rating: undefinedPlot: The true story of a newly appointed African-American coach and his high school team on their first season as a racially integrated unit.Cast: Denzel Washington, Will Patton, Wood Harris, Ryan HurstLanguage: EnglishOrigin Country: USATitle: MulanRelease Year: 1998Origin Country: USAIMDB Rating: 7.6Plot: To save her father from death in the army, a young maiden secretly goes in his place and becomes one of China's greatest heroines in the process.Rotten Tomatoes Rating: undefinedLanguage: English, MandarinCast: Miguel Ferrer, Harvey Fierstein, Freda Foh Shen, June ForayTitle: Mulan
-IMDB Rating: 7.6
-Release Year: 1998
-Language: English, Mandarin
-Plot: To save her father from death in the army, a young maiden secretly goes in his place and becomes one of China's greatest heroines in the process.
-Cast: Miguel Ferrer, Harvey Fierstein, Freda Foh Shen, June Foray
-Rotten Tomatoes Rating: undefined
-Origin Country: USA
-
 Title: Mulan
 Release Year: 1998
 Rotten Tomatoes Rating: undefined
@@ -192,3 +75,73 @@ Plot: A family of undercover superheroes, while trying to live the quiet suburba
 Language: English, French
 Cast: Craig T. Nelson, Holly Hunter, Samuel L. Jackson, Jason Lee
 Origin Country: USA
+
+Song Search
+Artist: Luke Combs
+Song Name: Beautiful Crazy
+Preview Link: https://p.scdn.co/mp3-preview/46f30246879a353edb15e19f91eb63376053cace?cid=59d8ae3cd02a4f68bddbb02c729af5a4
+Album Name: Beautiful Crazy
+
+Song Search
+Artist: Luke Combs
+Song Name: Beautiful Crazy
+Preview Link: https://p.scdn.co/mp3-preview/46f30246879a353edb15e19f91eb63376053cace?cid=59d8ae3cd02a4f68bddbb02c729af5a4
+Album Name: Beautiful Crazy
+
+Movie Search
+Title: Everybody's Fine
+Release Year: 2009
+IMDB Rating: 7.1
+Rotten Tomatoes Rating: 46%
+Origin Country: USA
+Language: English
+Plot: A widower who realized his only connection to his family was through his wife sets off on an impromptu road trip to reunite with each of his grown children.
+Cast: Robert De Niro, Drew Barrymore, Kate Beckinsale, Sam Rockwell
+
+Movie Search
+Title: Warcraft: The Beginning
+Release Year: 2016
+IMDB Rating: 6.9
+Rotten Tomatoes Rating: 27%
+Origin Country: China, Canada, Japan, USA
+Language: English
+Plot: As an Orc horde invades the planet Azeroth using a magic portal, a few human heroes and dissenting Orcs must attempt to stop the true evil behind this war.
+Cast: Travis Fimmel, Paula Patton, Ben Foster, Dominic Cooper
+
+Movie Search
+Title: The Hobbit: An Unexpected Journey
+Release Year: 2012
+IMDB Rating: 7.9
+Rotten Tomatoes Rating: 65%
+Origin Country: USA, New Zealand
+Language: English
+Plot: A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.
+Cast: Ian McKellen, Martin Freeman, Richard Armitage, Ken Stott
+
+Movie Search
+Title: Warcraft: The Beginning
+Release Year: 2016
+IMDB Rating: 6.9
+Rotten Tomatoes Rating: 27%
+Origin Country: China, Canada, Japan, USA
+Language: English
+Plot: As an Orc horde invades the planet Azeroth using a magic portal, a few human heroes and dissenting Orcs must attempt to stop the true evil behind this war.
+Cast: Travis Fimmel, Paula Patton, Ben Foster, Dominic Cooper
+
+Song Search
+Artist: Major Lazer
+Song Name: Pon De Floor
+Preview Link: null
+Album Name: Guns Don't Kill People...Lazers Do (Deluxe)
+
+Song Search
+Artist: Imagine Dragons
+Song Name: Natural
+Preview Link: null
+Album Name: Natural
+
+Song Search
+Artist: Imagine Dragons
+Song Name: Natural
+Preview Link: null
+Album Name: Natural

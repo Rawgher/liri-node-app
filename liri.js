@@ -23,7 +23,7 @@ const client = new Twitter({
     consumer_secret: keys.twitter.consumer_secret,
     access_token_key: keys.twitter.access_token_key,
     access_token_secret: keys.twitter.access_token_secret
-  });
+});
 
 
 // my screen name
@@ -32,18 +32,17 @@ let params = {
 };
 
 function twitter() {
-  client.get('statuses/user_timeline', params, function(error, tweets, response){
+    client.get('statuses/user_timeline', params, function (error, tweets, response) {
 
-    if(!error && response.statusCode === 200) {
-        // console.log(tweets);
+        if (!error && response.statusCode === 200) {
+            // console.log(tweets);
 
-        console.log(params.screen_name)
-        console.log(tweets[0].text)
-        console.log(tweets[0].created_at)
-    }
-  })
+            console.log("Screen Name: " + params.screen_name + "\nTweet Content: " + tweets[0].text+ "\nCreated On: " + tweets[0].created_at)
+        }
+    })
 };
 
+// need to double check preview url link
 
 function spotifySearch(songName) {
 
@@ -60,21 +59,18 @@ function spotifySearch(songName) {
             let link = starter.preview_url;
             let album = starter.album.name;
 
-            console.log("Artist: " + artist);
-            console.log("Song Name: " + song);
-            console.log("Preview Link: " + link);
-            console.log("Album Name: " + album);
+            console.log("Artist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link+ "\nAlbum Name: " + album);
 
 
-            fs.appendFile('log.txt', "\nSong Search\n")
-            fs.appendFile('log.txt', "Artist: " + artist + "\n");
-            fs.appendFile('log.txt', "Song Name: " + song + "\n");
-            fs.appendFile('log.txt', "Preview Link: " + link + "\n");
-            fs.appendFile('log.txt', "Album Name: " + album + "\n");
+            fs.appendFile('log.txt', "\nSong Search\nArtist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album + "\n", function(err) {
+                if (err) {
+                    return console.log('Error occurred: ' + err);
+                }
+            });
         });
 
     } else {
-        spotify.search({ type: 'track', query: songName, limit: "1" }, function (err, data) {
+        spotify.search({ type: 'track', query: "Natural", limit: "1" }, function (err, data) {
             if (err) {
                 return console.log('Error occurred: ' + err);
             }
@@ -85,21 +81,23 @@ function spotifySearch(songName) {
             let link = starter.preview_url;
             let album = starter.album.name;
 
-            console.log("Artist: " + artist);
-            console.log("Song Name: " + song);
-            console.log("Preview Link: " + link);
-            console.log("Album Name: " + album);
+            console.log("Artist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link+ "\nAlbum Name: " + album);
 
-            fs.appendFile('log.txt', "\nSong Search\n")
-            fs.appendFile('log.txt', "Artist: " + artist + "\n");
-            fs.appendFile('log.txt', "Song Name: " + song + "\n");
-            fs.appendFile('log.txt', "Preview Link: " + link + "\n");
-            fs.appendFile('log.txt', "Album Name: " + album + "\n");
-        });
+            fs.appendFile('log.txt', "\nSong Search\nArtist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album + "\n", function(err) {
+                
+                if (err) {
+                    return console.log('Error occurred: ' + err);
+                } // end of if error statement
 
-    }
+            }); // end of fs append
+        
+        }); // end of spotify search
+
+    } // end of else statement
 
 };
+
+// need to look into rotten tomato section
 
 function omdb(movieName) {
 
@@ -120,27 +118,23 @@ function omdb(movieName) {
                 let plot = JSON.parse(body).Plot;
                 let cast = JSON.parse(body).Actors;
 
-                console.log("Title: " + title);
-                console.log("Release Year: " + year);
-                console.log("IMDB Rating: " + rating);
-                console.log("Rotten Tomatoes Rating: " + rotten);
-                console.log("Origin Country: " + country);
-                console.log("Language: " + lang);
-                console.log("Plot: " + plot);
-                console.log("Cast: " + cast);
+                console.log("Title: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot+ "\nCast: " + cast);
 
-                fs.appendFile('log.txt', "\nMovie Search\n")
-                fs.appendFile('log.txt', "Title: " + title + "\n");
-                fs.appendFile('log.txt', "Release Year: " + year + "\n");
-                fs.appendFile('log.txt', "IMDB Rating: " + rating + "\n");
-                fs.appendFile('log.txt', "Rotten Tomatoes Rating: " + rotten + "\n");
-                fs.appendFile('log.txt', "Origin Country: " + country + "\n");
-                fs.appendFile('log.txt', "Language: " + lang + "\n");
-                fs.appendFile('log.txt', "Plot: " + plot + "\n");
-                fs.appendFile('log.txt', "Cast: " + cast + "\n");
-            }
-        });
-    } else {
+                fs.appendFile('log.txt', "\nMovie Search\nTitle: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast + "\n", function(err) {
+                
+                    if (err) {
+                        return console.log('Error occurred: ' + err);
+                    } // end of fs error statement
+                
+                }); // end of fs append
+
+            } // end of inner if statement
+
+        }); // end of if request
+
+    } // end of if statement 
+
+    else {
         request("http://www.omdbapi.com/?t=The+Hobbit+An+Unexpected+Journey&y=&plot=short&apikey=trilogy", function (error, response, body) {
             console.log("You should watch the Hobbit!");
 
@@ -154,28 +148,22 @@ function omdb(movieName) {
             let plot = JSON.parse(body).Plot;
             let cast = JSON.parse(body).Actors;
 
-            console.log("Title: " + title);
-            console.log("Release Year: " + year);
-            console.log("IMDB Rating: " + rating);
-            console.log("Rotten Tomatoes Rating: " + rotten);
-            console.log("Origin Country: " + country);
-            console.log("Language: " + lang);
-            console.log("Plot: " + plot);
-            console.log("Cast: " + cast);
+            console.log("Title: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot+ "\nCast: " + cast);
 
-            fs.appendFile('log.txt', "\nMovie Search\n")
-            fs.appendFile('log.txt', "Title: " + title + "\n");
-            fs.appendFile('log.txt', "Release Year: " + year + "\n");
-            fs.appendFile('log.txt', "IMDB Rating: " + rating + "\n");
-            fs.appendFile('log.txt', "Rotten Tomatoes Rating: " + rotten + "\n");
-            fs.appendFile('log.txt', "Origin Country: " + country + "\n");
-            fs.appendFile('log.txt', "Language: " + lang + "\n");
-            fs.appendFile('log.txt', "Plot: " + plot + "\n");
-            fs.appendFile('log.txt', "Cast: " + cast + "\n");
-        });
+            fs.appendFile('log.txt', "\nMovie Search\nTitle: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast + "\n", function(err) {
+                
+                if (err) {
+                    return console.log('Error occurred: ' + err);
+                
+                } // end of error if statement
+            
+            }); // end of fs append
 
-    }
-}
+        }); // end of else request
+
+    } // end of else statement
+
+} //end of movie function
 
 // function doIt() {
 
