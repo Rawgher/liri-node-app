@@ -37,7 +37,15 @@ function twitter() {
         if (!error && response.statusCode === 200) {
             // console.log(tweets);
 
-            console.log("Screen Name: " + params.screen_name + "\nTweet Content: " + tweets[0].text+ "\nCreated On: " + tweets[0].created_at)
+            console.log("Screen Name: " + params.screen_name + "\nTweet Content: " + tweets[0].text + "\nCreated On: " + tweets[0].created_at)
+
+            fs.appendFile('log.txt', "\nTweets\nScreen Name: " + params.screen_name + "\nTweet Content: " + tweets[0].text + "\nCreated On: " + tweets[0].created_at + "\n", function (err) {
+
+                if (err) {
+                    return console.log('Error occurred: ' + err);
+                } // end of fs error statement
+
+            }); // end of fs append
         }
     })
 };
@@ -59,10 +67,10 @@ function spotifySearch(songName) {
             let link = starter.preview_url;
             let album = starter.album.name;
 
-            console.log("Artist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link+ "\nAlbum Name: " + album);
+            console.log("Artist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album);
 
 
-            fs.appendFile('log.txt', "\nSong Search\nArtist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album + "\n", function(err) {
+            fs.appendFile('log.txt', "\nSong Search\nArtist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album + "\n", function (err) {
                 if (err) {
                     return console.log('Error occurred: ' + err);
                 }
@@ -81,16 +89,16 @@ function spotifySearch(songName) {
             let link = starter.preview_url;
             let album = starter.album.name;
 
-            console.log("Artist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link+ "\nAlbum Name: " + album);
+            console.log("Artist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album);
 
-            fs.appendFile('log.txt', "\nSong Search\nArtist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album + "\n", function(err) {
-                
+            fs.appendFile('log.txt', "\nSong Search\nArtist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album + "\n", function (err) {
+
                 if (err) {
                     return console.log('Error occurred: ' + err);
                 } // end of if error statement
 
             }); // end of fs append
-        
+
         }); // end of spotify search
 
     } // end of else statement
@@ -118,14 +126,14 @@ function omdb(movieName) {
                 let plot = JSON.parse(body).Plot;
                 let cast = JSON.parse(body).Actors;
 
-                console.log("Title: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot+ "\nCast: " + cast);
+                console.log("Title: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast);
 
-                fs.appendFile('log.txt', "\nMovie Search\nTitle: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast + "\n", function(err) {
-                
+                fs.appendFile('log.txt', "\nMovie Search\nTitle: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast + "\n", function (err) {
+
                     if (err) {
                         return console.log('Error occurred: ' + err);
                     } // end of fs error statement
-                
+
                 }); // end of fs append
 
             } // end of inner if statement
@@ -148,15 +156,15 @@ function omdb(movieName) {
             let plot = JSON.parse(body).Plot;
             let cast = JSON.parse(body).Actors;
 
-            console.log("Title: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot+ "\nCast: " + cast);
+            console.log("Title: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast);
 
-            fs.appendFile('log.txt', "\nMovie Search\nTitle: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast + "\n", function(err) {
-                
+            fs.appendFile('log.txt', "\nMovie Search\nTitle: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast + "\n", function (err) {
+
                 if (err) {
                     return console.log('Error occurred: ' + err);
-                
+
                 } // end of error if statement
-            
+
             }); // end of fs append
 
         }); // end of else request
@@ -165,11 +173,15 @@ function omdb(movieName) {
 
 } //end of movie function
 
-// function doIt() {
+function doIt() {
 
-// }
+    fs.readFile('random.txt', "utf8", function (error, data) {
+        var songTitle = data.split(',');
 
+        spotifySearch(songTitle[1]);
 
+    });
+}
 
 if (command === "my-tweets") {
     twitter();
@@ -178,5 +190,5 @@ if (command === "my-tweets") {
 } else if (command === "movie-this") {
     omdb(movieName);
 } else if ("do-what-it-says") {
-    // doIt();
+    doIt();
 }
