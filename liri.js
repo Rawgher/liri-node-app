@@ -1,6 +1,6 @@
 require("dotenv").config();
-let fs = require("fs");
-let request = require("request");
+const fs = require("fs");
+const request = require("request");
 
 const keys = require("./keys");
 let Spotify = require("node-spotify-api");
@@ -28,7 +28,8 @@ const client = new Twitter({
 
 // my screen name
 let params = {
-    screen_name: 'Rawgher'
+    screen_name: 'BBC',
+    count: 10
 };
 
 function twitter() {
@@ -36,16 +37,17 @@ function twitter() {
 
         if (!error && response.statusCode === 200) {
             // console.log(tweets);
+            for (var i = 0; i < tweets.length; i++) {
+                console.log("Screen Name: " + params.screen_name + "\nTweet Content: " + tweets[i].text + "\nCreated On: " + tweets[i].created_at)
 
-            console.log("Screen Name: " + params.screen_name + "\nTweet Content: " + tweets[0].text + "\nCreated On: " + tweets[0].created_at)
+                fs.appendFile('log.txt', "\nTweets\nScreen Name: " + params.screen_name + "\nTweet Content: " + tweets[i].text + "\nCreated On: " + tweets[i].created_at + "\n", function (err) {
 
-            fs.appendFile('log.txt', "\nTweets\nScreen Name: " + params.screen_name + "\nTweet Content: " + tweets[0].text + "\nCreated On: " + tweets[0].created_at + "\n", function (err) {
+                    if (err) {
+                        return console.log('Error occurred: ' + err);
+                    } // end of fs error statement
 
-                if (err) {
-                    return console.log('Error occurred: ' + err);
-                } // end of fs error statement
-
-            }); // end of fs append
+                }); // end of fs append
+            }
         }
     })
 };
@@ -67,28 +69,37 @@ function spotifySearch(songName) {
             let link = starter.preview_url;
             let album = starter.album.name;
 
-            console.log("Artist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album);
+            function newLink() {
+                if (link === null) {
+                    console.log("Preview Link: Looks like this song doesn't have a preview link.");
+                } else {
+                    console.log("Preview Link: " + link);
+                };
+            }
 
+            console.log("Artist: " + artist + "\nSong Name: " + song + "\nAlbum Name: " + album);
+            newLink();
 
-            fs.appendFile('log.txt', "\nSong Search\nArtist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album + "\n", function (err) {
+            fs.appendFile('log.txt', "\nSong Search\nArtist: " + artist + "\nSong Name: " + song + "\nAlbum Name: " + album + "\nPreview Link: " + link + "\n", function (err) {
                 if (err) {
                     return console.log('Error occurred: ' + err);
-                }
+                } 
             });
         });
 
     } else {
-        spotify.search({ type: 'track', query: "Natural", limit: "1" }, function (err, data) {
+        spotify.search({ type: 'track', query: "Chop Suey!", limit: "1" }, function (err, data) {
             if (err) {
                 return console.log('Error occurred: ' + err);
             }
-            var starter = data.tracks.items[0]
+            const starter = data.tracks.items[0]
 
             let artist = starter.artists[0].name;
             let song = starter.name;
-            let link = starter.preview_url;
+            let link = starter.preview_url
             let album = starter.album.name;
 
+            console.log("WAKE UP! You didn't enter a valid song... So go listen to Chop Suey!")
             console.log("Artist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album);
 
             fs.appendFile('log.txt', "\nSong Search\nArtist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album + "\n", function (err) {
@@ -144,7 +155,7 @@ function omdb(movieName) {
 
     else {
         request("http://www.omdbapi.com/?t=The+Hobbit+An+Unexpected+Journey&y=&plot=short&apikey=trilogy", function (error, response, body) {
-            console.log("You should watch the Hobbit!");
+            console.log("You didn't enter a movie name... So I'll suggest watching The Hobbit!");
 
             let title = JSON.parse(body).Title;
             let year = JSON.parse(body).Year;
