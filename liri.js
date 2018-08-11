@@ -1,23 +1,36 @@
+// requiring .env file
 require("dotenv").config();
+
+// requiring file system
 const fs = require("fs");
+
+// requiring request npm
 const request = require("request");
 
+// requiring keys javascript account
 const keys = require("./keys");
+
+// requiring spotify node npm
 let Spotify = require("node-spotify-api");
 
+// variables set to pull user input from command line
 const command = process.argv[2];
 let movieName = process.argv[3];
 let songName = process.argv[3];
 
+// omdb secret key
 const omdbKey = keys.omdb.id;
 
+//spotify secret keys
 const spotify = new Spotify({
     id: keys.spotify.id,
     secret: keys.spotify.secret
 });
 
+// requiring twitter node npm
 let Twitter = require('twitter');
 
+// twitter secret keys
 const client = new Twitter({
     consumer_key: keys.twitter.consumer_key,
     consumer_secret: keys.twitter.consumer_secret,
@@ -26,42 +39,53 @@ const client = new Twitter({
 });
 
 
-// my screen name
+// parameters passed through the twitter get function
 let params = {
-    screen_name: 'BBC',
-    count: 10
+    screen_name: 'SquareEnix',
+    count: 20
 };
 
+// function setting up twitter grab
 function twitter() {
+    // setting up the api call
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
 
         if (!error && response.statusCode === 200) {
-            // console.log(tweets);
+            
+            // for loop used to grab the most recent 20 tweets
             for (var i = 0; i < tweets.length; i++) {
-                console.log("Screen Name: " + params.screen_name + "\nTweet Content: " + tweets[i].text + "\nCreated On: " + tweets[i].created_at)
+                console.log("Screen Name: " + params.screen_name + "\nTweet Content: " + tweets[i].text + "\nCreated On: " + tweets[i].created_at + "\n")
 
+                // append file function to log all the tweets to log.txt file
                 fs.appendFile('log.txt', "\nTweets\nScreen Name: " + params.screen_name + "\nTweet Content: " + tweets[i].text + "\nCreated On: " + tweets[i].created_at + "\n", function (err) {
 
                     if (err) {
                         return console.log('Error occurred: ' + err);
-                    } // end of fs error statement
+                    } 
 
-                }); // end of fs append
+                }); 
+
             }
+
         }
+
     })
+
 };
 
-// need to double check preview url link
-
+// spotify search function
 function spotifySearch(songName) {
 
+    // if the user inputs a valid song name
     if (songName) {
-
+        
+        //setting up spotify api call and limiting to one result
         spotify.search({ type: 'track', query: songName, limit: "1" }, function (err, data) {
+            
             if (err) {
                 return console.log('Error occurred: ' + err);
             }
+            
             var starter = data.tracks.items[0]
 
             let artist = starter.artists[0].name;
@@ -69,6 +93,7 @@ function spotifySearch(songName) {
             let link = starter.preview_url;
             let album = starter.album.name;
 
+            // function made to show text if preview link url isn't available
             function newLink() {
                 if (link === null) {
                     console.log("Preview Link: Looks like this song doesn't have a preview link.");
@@ -76,22 +101,31 @@ function spotifySearch(songName) {
                     console.log("Preview Link: " + link);
                 };
             }
-
+            
+            // logging results to the console
             console.log("Artist: " + artist + "\nSong Name: " + song + "\nAlbum Name: " + album);
             newLink();
 
+            // append file function to add results to log.txt file
             fs.appendFile('log.txt', "\nSong Search\nArtist: " + artist + "\nSong Name: " + song + "\nAlbum Name: " + album + "\nPreview Link: " + link + "\n", function (err) {
                 if (err) {
                     return console.log('Error occurred: ' + err);
                 } 
+
             });
+
         });
 
+    // else statement for if the user doesn't input a song name
     } else {
+
+        // spotify search function that manually inputs Chop Suey for the search result
         spotify.search({ type: 'track', query: "Chop Suey!", limit: "1" }, function (err, data) {
+            
             if (err) {
                 return console.log('Error occurred: ' + err);
             }
+            
             const starter = data.tracks.items[0]
 
             let artist = starter.artists[0].name;
@@ -99,91 +133,105 @@ function spotifySearch(songName) {
             let link = starter.preview_url
             let album = starter.album.name;
 
+            //conole logs for the results
             console.log("WAKE UP! You didn't enter a valid song... So go listen to Chop Suey!")
             console.log("Artist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album);
 
-            fs.appendFile('log.txt', "\nSong Search\nArtist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album + "\n", function (err) {
+            // append file function to add default search result to log.txt file
+            fs.appendFile('log.txt', "\nNo User Input Song Search\nArtist: " + artist + "\nSong Name: " + song + "\nPreview Link: " + link + "\nAlbum Name: " + album + "\n", function (err) {
 
                 if (err) {
                     return console.log('Error occurred: ' + err);
-                } // end of if error statement
+                }
 
-            }); // end of fs append
+            });
 
-        }); // end of spotify search
+        });
 
-    } // end of else statement
+    }
 
 };
 
-// need to look into rotten tomato section
-
+// function for omdb calls
 function omdb(movieName) {
 
+    // called if the user enters a movie
     if (movieName) {
+        
+        // setting up request for user input movie
         request("http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=" + omdbKey, function (error, response, body) {
 
-            // If the request is successful (i.e. if the response status code is 200)
             if (!error && response.statusCode === 200) {
-                // Parse the body of the site and recover just the imdbRating
-                // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+
                 let title = JSON.parse(body).Title;
                 let year = JSON.parse(body).Year;
                 let rating = JSON.parse(body).imdbRating;
-                // need to add if statement to see if rotten tomatoes works or not
-                let rotten = JSON.parse(body).Ratings[1].Value;
+                let rotten = newRotten();
                 let country = JSON.parse(body).Country;
                 let lang = JSON.parse(body).Language;
                 let plot = JSON.parse(body).Plot;
                 let cast = JSON.parse(body).Actors;
 
-                console.log("Title: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast);
+                // function in case the movie does not have a rotten tomato it will display new text
+                function newRotten() {
+                    if (JSON.parse(body).Ratings && JSON.parse(body).Ratings[1]) {
+                        return ("Rotten Tomatoes Rating: " + JSON.parse(body).Ratings[1].Value);
+                    } else {
+                        return("Rotten Tomatoes Rating: Looks like this movie doesn't have a valid rotten tomatoes rating.");
+                    };
+                }
 
-                fs.appendFile('log.txt', "\nMovie Search\nTitle: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast + "\n", function (err) {
+                // logging results to terminal
+                console.log("Title: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast + "\n" + rotten);
+
+                // appending information to log.txt file
+                fs.appendFile('log.txt', "\nMovie Search\nTitle: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating +   "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast + "\n" + rotten + "\n", function (err) {
 
                     if (err) {
                         return console.log('Error occurred: ' + err);
-                    } // end of fs error statement
+                    }
 
-                }); // end of fs append
+                });
 
-            } // end of inner if statement
+            }
 
-        }); // end of if request
+        });
 
-    } // end of if statement 
-
-    else {
-        request("http://www.omdbapi.com/?t=The+Hobbit+An+Unexpected+Journey&y=&plot=short&apikey=trilogy", function (error, response, body) {
+    // function that runs if the user does not input a movie
+    } else {
+        // request that defaults to newest Hobbit movie
+        request("http://www.omdbapi.com/?t=The+Hobbit+An+Unexpected+Journey&y=&plot=short&apikey=" + omdbKey, function (error, response, body) {
             console.log("You didn't enter a movie name... So I'll suggest watching The Hobbit!");
 
             let title = JSON.parse(body).Title;
             let year = JSON.parse(body).Year;
             let rating = JSON.parse(body).imdbRating;
-            // need to add if statement to see if rotten tomatoes works or not
             let rotten = JSON.parse(body).Ratings[1].Value;
             let country = JSON.parse(body).Country;
             let lang = JSON.parse(body).Language;
             let plot = JSON.parse(body).Plot;
             let cast = JSON.parse(body).Actors;
 
+            // logs results to the console
             console.log("Title: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast);
 
-            fs.appendFile('log.txt', "\nMovie Search\nTitle: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast + "\n", function (err) {
+            // appends information to log.txt file
+            fs.appendFile('log.txt', "\nNo User Input Movie Search\nTitle: " + title + "\nRelease Year: " + year + "\nIMDB Rating: " + rating + "\nRotten Tomatoes Rating: " + rotten + "\nOrigin Country: " + country + "\nLanguage: " + lang + "\nPlot: " + plot + "\nCast: " + cast + "\n", function (err) {
 
                 if (err) {
                     return console.log('Error occurred: ' + err);
 
-                } // end of error if statement
+                }
 
-            }); // end of fs append
+            });
 
-        }); // end of else request
+        });
 
-    } // end of else statement
+    } 
 
-} //end of movie function
+} 
 
+// function that pulls fromt random.txt file to do a search
 function doIt() {
 
     fs.readFile('random.txt', "utf8", function (error, data) {
@@ -194,6 +242,7 @@ function doIt() {
     });
 }
 
+//if else statements that take the third input (second argument) on the terminal line and decides which function runs
 if (command === "my-tweets") {
     twitter();
 } else if (command === "spotify-this-song") {
