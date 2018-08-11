@@ -934,26 +934,6 @@ Preview Link: https://p.scdn.co/mp3-preview/cd2a1f9fd7619bdae4e2e718b11d5bb054a3
 Album Name: Toxicity
 
 Movie Search
-Title: undefined
-Release Year: undefined
-IMDB Rating: undefined
-Origin Country: undefined
-Language: undefined
-Plot: undefined
-Cast: undefined
-Rotten Tomatoes Rating: Rotten Tomatoes Rating: Looks like this movie doesn't have a valid rotten tomatoes rating.
-
-Movie Search
-Title: undefined
-Release Year: undefined
-IMDB Rating: undefined
-Origin Country: undefined
-Language: undefined
-Plot: undefined
-Cast: undefined
-Rotten Tomatoes Rating: Looks like this movie doesn't have a valid rotten tomatoes rating.
-
-Movie Search
 Title: Incredibles 2
 Release Year: 2018
 IMDB Rating: 8.2
